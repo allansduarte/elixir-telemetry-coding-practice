@@ -19,12 +19,9 @@ defmodule Quantum.Application do
 
     # List all child processes to be supervised
     children = [
-      # Start the Ecto repository
       Quantum.Repo,
-      # Start the endpoint when the application starts
-      QuantumWeb.Endpoint
-      # Starts a worker by calling: Quantum.Worker.start_link(arg)
-      # {Quantum.Worker, arg},
+      QuantumWeb.Endpoint,
+      Quantum.Telemetry
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
