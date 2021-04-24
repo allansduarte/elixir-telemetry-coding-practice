@@ -6,6 +6,8 @@ defmodule Quantum.Application do
   use Application
 
   def start(_type, _args) do
+    :ok = Quantum.Telemetry.StatsdReporter.connect()
+
     :ok =
       :telemetry.attach(
         # unique handler id
